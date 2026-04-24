@@ -7,7 +7,156 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- TODO: build the full landing page -->
-  <h1>doer</h1>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">doer</span>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="https://github.com/shanumas/doer" target="_blank">GitHub</a>
+        <a href="https://github.com/shanumas/doer" target="_blank" class="btn-nav">Get started →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">Open Source · Model Agnostic · Enterprise Ready</div>
+    <h1>Your GitHub issues,<br /><span class="gradient">fixed while you sleep.</span></h1>
+    <p class="hero-sub">
+      doer picks issues from your GitHub board, asks for your approval on Teams,
+      then autonomously clones your repo, writes the fix, and opens a pull request.
+    </p>
+    <div class="hero-cta">
+      <a href="https://github.com/shanumas/doer" target="_blank" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        Star on GitHub
+      </a>
+      <a href="https://github.com/shanumas/doer#readme" target="_blank" class="btn-secondary">Read the docs</a>
+    </div>
+
+    <!-- TERMINAL MOCKUP -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">doer agent — issue #42</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line"><span class="prompt">▶</span> <span class="cmd">Cloning shanumas/my-app into sandbox…</span></div>
+        <div class="line"><span class="prompt">▶</span> <span class="cmd">Reading issue #42: Fix broken auth flow on login</span></div>
+        <div class="line dim"><span class="prompt">$</span> cat src/auth/login.ts</div>
+        <div class="line dim"><span class="prompt">$</span> cat src/auth/session.ts</div>
+        <div class="line"><span class="prompt">▶</span> <span class="decision">DECISION: Root cause found — session token not refreshed on re-auth</span></div>
+        <div class="line dim"><span class="prompt">$</span> git diff --stat HEAD</div>
+        <div class="line"><span class="prompt">▶</span> <span class="cmd">2 files changed, 14 insertions(+), 3 deletions(-)</span></div>
+        <div class="line success"><span class="prompt">✓</span> PR opened: github.com/shanumas/my-app/pull/87</div>
+        <div class="line cursor-line"><span class="prompt">▶</span> <span class="cursor">▋</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="section-label">How it works</div>
+      <h2>Three steps.<br />Zero babysitting.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-icon">🔗</div>
+          <h3>Connect</h3>
+          <p>Connect your GitHub account and select a repository. doer watches for open issues labelled <code>doer</code> and respects dependency order automatically.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-icon">✅</div>
+          <h3>Approve</h3>
+          <p>An Adaptive Card lands in your Microsoft Teams channel. One tap to approve or deny — you stay in control of what gets worked on.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-icon">🚀</div>
+          <h3>Done</h3>
+          <p>doer spins up an isolated sandbox, clones your repo, writes the fix, commits, and opens a pull request. Every decision is logged for your team to audit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-label">Features</div>
+      <h2>Built for real teams.</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Model agnostic</h3>
+          <p>Works with OpenAI, Azure OpenAI, Anthropic, Ollama, or any OpenAI-compatible endpoint. Your data goes directly to your provider — no middleman.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Sandboxed execution</h3>
+          <p>Every task runs in an isolated Docker container that is destroyed after the PR is opened. Your host system is never touched.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>Dependency aware</h3>
+          <p>doer reads issue bodies for "depends on #N" and "blocked by #N" patterns and always picks the unblocked issue first.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>GitHub Projects v2</h3>
+          <p>Reads both labelled issues and GitHub Projects boards. Priority order from your project board is respected.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Full audit trail</h3>
+          <p>Every shell command, AI decision, and file change is streamed live to your dashboard and stored for governance and compliance.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <h3>Enterprise ready</h3>
+          <p>OAuth via GitHub and Microsoft Entra ID. Self-hosted with Docker Compose. Runs inside your own infrastructure — no data leaves your network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section class="opensource">
+    <div class="section-inner os-inner">
+      <div class="os-text">
+        <div class="section-label">Open Source</div>
+        <h2>Free forever.<br />Own your stack.</h2>
+        <p>doer is MIT licensed. No usage fees, no API paywalls, no vendor lock-in. Fork it, extend it, deploy it in your own cloud. Contributions welcome.</p>
+        <a href="https://github.com/shanumas/doer" target="_blank" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="os-stats">
+        <div class="stat"><span class="stat-num">27</span><span class="stat-label">files</span></div>
+        <div class="stat"><span class="stat-num">~700</span><span class="stat-label">lines of code</span></div>
+        <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">license</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">command to run</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="logo">doer</span>
+      <span class="footer-tagline">autonomous issue fixer</span>
+      <a href="https://github.com/shanumas/doer" target="_blank" class="footer-link">GitHub →</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
